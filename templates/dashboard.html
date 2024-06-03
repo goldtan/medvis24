@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의료 분석 도구</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 사이드바 섹션 -->
+            <div class="col-md-3 sidebar">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4>검사 결과 필터</h4>
+                        <form id="filter-form">
+                            <div class="form-group">
+                                <label for="testResult1">첫 번째 검사 결과</label>
+                                <select id="testResult1" class="form-control">
+                                    <option value="">검사를 선택하세요...</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="testResult2">두 번째 검사 결과</label>
+                                <select id="testResult2" class="form-control">
+                                    <option value="">없음</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate">시작 날짜</label>
+                                <input type="date" id="startDate" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">종료 날짜</label>
+                                <input type="date" id="endDate" class="form-control">
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block" onclick="updateGraph()">업데이트</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 메인 콘텐츠 섹션 -->
+            <div class="col-md-9">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">의료 분석 도구</h2>
+                        
+                        <!-- 그래프 섹션 -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>검사 결과 그래프</h4>
+                                <div id="lineChart" class="chart"></div>
+                                <div id="legend" class="d-flex justify-content-center"></div> <!-- Legend 추가 -->
+                            </div>
+                        </div>
+                        
+                        <!-- 테이블 섹션 -->
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <h4>검사 결과 데이터</h4>
+                                <table class="table table-light table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>날짜</th>
+                                            <th>검사 이름</th>
+                                            <th>결과</th>
+                                            <th>참고 범위</th>
+                                            <th>비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="testData">
+                                        <!-- 검사 데이터가 여기에 삽입됩니다 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var patientId = "{{ patient_id }}";  // Flask에서 전달한 환자 ID
+    </script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

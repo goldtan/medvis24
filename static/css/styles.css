@@ -1,0 +1,109 @@
+body {
+    background-color: #ffffff; /* white background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #000000;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.logo {
+    max-width: 100%;
+    /*height: auto;
+    /* max-height: 25vh; /* 화면 높이에 따라 최대 높이 설정 */
+    object-fit: contain; 
+}
+
+.card {
+    margin-top: 1rem;
+    background-color: #eef5fb; /* slightly darker pastel blue */
+    color: #000000;
+    border: 1px solid #b6c5d6;
+}
+
+.form-control, .btn {
+    background-color: #e3f2fd; /* slightly darker pastel blue */
+    color: #000000;
+    border: 1px solid #b6c5d6;
+}
+
+.form-control:focus, .btn:focus {
+    background-color: #f4f9fd; /* slightly darker pastel blue */
+    color: #000000;
+}
+
+.table-light {
+    background-color: #ffffff; /* white for table background */
+}
+
+.sidebar {
+    border-right: 1px solid #ced4da;
+    height: 100vh;
+}
+
+.chart {
+    margin-top: 20px;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #ffffff; /* white for better visibility */
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #333;
+    transition: opacity 0.3s ease;
+}
+
+.legend {
+    font-size: 12px;
+}
+
+/* Custom overrides to ensure Bootstrap styles are overridden */
+.card .card-body {
+    background-color: #f4f9fd !important; /* slightly darker pastel blue */
+    color: #000000 !important;
+}
+
+.container-fluid {
+    height: 100% !important;
+}
+
+
+.form-control {
+    background-color: #e3f2fd !important; /* slightly darker pastel blue */
+    color: #000000 !important;
+    border: 1px solid #b6c5d6 !important;
+}
+
+.form-control:focus {
+    background-color: #d0d8e5 !important; /* slightly darker pastel blue */
+    color: #000000 !important;
+}
+
+.btn-primary {
+    background-color: #e3f2fd !important; /* slightly darker pastel blue */
+    color: #000000 !important;
+    border: 1px solid #b6c5d6 !important;
+}
+
+.btn-primary:focus {
+    background-color: #d0d8e5 !important; /* slightly darker pastel blue */
+    color: #000000 !important;
+}
+
+.table-light {
+    background-color: #ffffff !important; /* white for table background */
+}
